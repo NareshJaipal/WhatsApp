@@ -17,7 +17,6 @@ class _StatusesState extends State<Statuses> {
       body: Column(
         children: [
           const ListTile(
-            // Show images from picsum.photos
             leading: CircleAvatar(
               backgroundImage: NetworkImage(
                   'https://avatars.githubusercontent.com/u/132568227?v=4'),
@@ -38,12 +37,11 @@ class _StatusesState extends State<Statuses> {
               itemCount: chats.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  // Show images from picsum.photos
                   leading: CircleAvatar(
                     maxRadius: 20,
                     minRadius: 19,
                     backgroundColor: Colors.green,
-                    backgroundImage: NetworkImage(photo[index]),
+                    backgroundImage: AssetImage(photo[index]),
                   ),
                   title: Text(name[index]),
                   subtitle: Row(

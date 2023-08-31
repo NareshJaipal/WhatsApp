@@ -27,150 +27,14 @@ class _WhatsAppState extends State<WhatsApp> {
       home: Builder(
         builder: (context) {
           return DefaultTabController(
-            initialIndex: 2,
+            initialIndex: 1,
             length: 4,
             child: Scaffold(
               appBar: AppBar(
                 actions: [
                   _isDarkMode
-                      ? IconButton(
-                          icon: const Icon(Icons.sunny),
-                          onPressed: () {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: const Text('Theme'),
-                                  content: const Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "Light",
-                                        style: TextStyle(fontSize: 30),
-                                      ),
-                                      SizedBox(width: 20),
-                                      Icon(Icons.sunny_snowing, size: 70)
-                                    ],
-                                  ),
-                                  actions: [
-                                    Container(
-                                      padding: const EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Colors.grey,
-                                      ),
-                                      child: TextButton(
-                                        child: const Text(
-                                          'Cancel',
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: const EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Colors.grey,
-                                      ),
-                                      child: TextButton(
-                                        child: const Text(
-                                          'Active',
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                        onPressed: () {
-                                          setState(
-                                            () {
-                                              _isDarkMode = !_isDarkMode;
-                                            },
-                                          );
-                                          Navigator.of(context).pop();
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
-                          },
-                        )
-                      : IconButton(
-                          icon: const Icon(Icons.dark_mode),
-                          onPressed: () {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: const Text('Theme'),
-                                  content: const Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "Dark",
-                                        style: TextStyle(fontSize: 30),
-                                      ),
-                                      SizedBox(width: 20),
-                                      Icon(Icons.nights_stay, size: 70)
-                                    ],
-                                  ),
-                                  actions: [
-                                    Container(
-                                      padding: const EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Colors.grey,
-                                      ),
-                                      child: TextButton(
-                                        child: const Text(
-                                          'Cancel',
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: const EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Colors.grey,
-                                      ),
-                                      child: TextButton(
-                                        child: const Text(
-                                          'Active',
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                        onPressed: () {
-                                          setState(
-                                            () {
-                                              _isDarkMode = !_isDarkMode;
-                                            },
-                                          );
-                                          Navigator.of(context).pop();
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
-                          },
-                        ),
+                      ? lightTheme(context)
+                      : darkTheme(context),
                   IconButton(
                     onPressed: () {},
                     icon: const Icon(Icons.camera_alt_rounded),
@@ -238,5 +102,149 @@ class _WhatsAppState extends State<WhatsApp> {
         },
       ),
     );
+  }
+
+  IconButton darkTheme(BuildContext context) {
+    return IconButton(
+                        icon: const Icon(Icons.dark_mode),
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: const Text('Theme'),
+                                content: const Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Dark",
+                                      style: TextStyle(fontSize: 30),
+                                    ),
+                                    SizedBox(width: 20),
+                                    Icon(Icons.nights_stay, size: 70)
+                                  ],
+                                ),
+                                actions: [
+                                  Container(
+                                    padding: const EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: Colors.grey,
+                                    ),
+                                    child: TextButton(
+                                      child: const Text(
+                                        'Cancel',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: Colors.grey,
+                                    ),
+                                    child: TextButton(
+                                      child: const Text(
+                                        'Active',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        setState(
+                                          () {
+                                            _isDarkMode = !_isDarkMode;
+                                          },
+                                        );
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
+                      );
+  }
+
+  IconButton lightTheme(BuildContext context) {
+    return IconButton(
+                        icon: const Icon(Icons.sunny),
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: const Text('Theme'),
+                                content: const Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Light",
+                                      style: TextStyle(fontSize: 30),
+                                    ),
+                                    SizedBox(width: 20),
+                                    Icon(Icons.sunny_snowing, size: 70)
+                                  ],
+                                ),
+                                actions: [
+                                  Container(
+                                    padding: const EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: Colors.grey,
+                                    ),
+                                    child: TextButton(
+                                      child: const Text(
+                                        'Cancel',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: Colors.grey,
+                                    ),
+                                    child: TextButton(
+                                      child: const Text(
+                                        'Active',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        setState(
+                                          () {
+                                            _isDarkMode = !_isDarkMode;
+                                          },
+                                        );
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
+                      );
   }
 }

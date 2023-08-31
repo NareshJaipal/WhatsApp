@@ -4,7 +4,7 @@ class Community extends StatefulWidget {
   const Community({Key? key}) : super(key: key);
 
   @override
-  _CommunityState createState() => _CommunityState();
+  State<Community> createState() => _CommunityState();
 }
 
 class _CommunityState extends State<Community> {
@@ -15,7 +15,7 @@ class _CommunityState extends State<Community> {
         children: [
           Center(
             child: Image.asset(
-              "assets/images/community.png",
+              "assets/community.png",
               width: 400,
             ),
           ),

@@ -19,10 +19,9 @@ class _ChatsState extends State<Chats> {
         itemCount: chats.length,
         itemBuilder: (context, index) {
           return ListTile(
-            // Show images from picsum.photos
             leading: GestureDetector(
               child: CircleAvatar(
-                backgroundImage: NetworkImage(photo[index]),
+                backgroundImage: AssetImage(photo[index]),
               ),
               onTap: () => showDialog(
                 context: context,
@@ -38,7 +37,7 @@ class _ChatsState extends State<Chats> {
                             style: const TextStyle(color: Colors.grey),
                           ),
                           const SizedBox(height: 10),
-                          Image.network(photo[index], width: 230, height: 250),
+                          Image.asset(photo[index], width: 230, height: 250),
                           const SizedBox(height: 10),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -102,7 +101,6 @@ class _ChatsState extends State<Chats> {
               time[index],
               style: const TextStyle(fontSize: 13, color: Colors.grey),
             ),
-
             onTap: () {
               Contact contact = Contact(
                 name: name[index],

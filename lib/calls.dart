@@ -17,7 +17,6 @@ class _ChatsState extends State<Calls> {
       body: Column(
         children: [
           ListTile(
-            // Show images from picsum.photos
             leading: CircleAvatar(
               child: Transform.rotate(
                 angle: 125,
@@ -27,7 +26,6 @@ class _ChatsState extends State<Calls> {
                 ),
               ),
             ),
-
             title: const Text('Create call link'),
             subtitle: const Text('Share a link for your WhatsApp call'),
           ),
@@ -44,9 +42,8 @@ class _ChatsState extends State<Calls> {
               itemCount: chats.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  // Show images from picsum.photos
                   leading: CircleAvatar(
-                    backgroundImage: NetworkImage(photo[index]),
+                    backgroundImage: AssetImage(photo[index]),
                   ),
                   title: Text(name[index]),
                   subtitle: Row(
